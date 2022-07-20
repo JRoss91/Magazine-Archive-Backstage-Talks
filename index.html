@@ -5,8 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backstage Talks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+    
+
+    <section class="section1">
+    <div class="magazine">
+        <div class="mag six" id="six">
+        <img src="https://backstagetalks.com/img/backstagetalks_cover_issue_6.png" alt="" class="mag-img">
+        <p class="mag-heading">Issue #6</p>
+        <div class="buy"><a href="#">BUY HERE</a></div>
+        <p class="stores">or in <a href="#">selected stores</a></p>
+        </div>
+    </div>
+    </section>
+
+    <section class="section2">
+    <div class="magazine">
+        <div class="mag five" id="five">
+        <img src="https://backstagetalks.com/img/backstagetalks_cover_issue_5.png" alt="" class="mag-img">
+        <p class="mag-heading">Issue #5</p>
+        <div class="buy"><a href="#">BUY HERE</a></div>
+        <p class="stores">or in <a href="#">selected stores</a></p>
+        </div>
+    </div>
+    </section>
+
+    <section class="section3">
+        <div class="magazine">
+            <div class="mag four" id="four">
+            <img src="https://backstagetalks.com/img/backstagetalks_cover_issue_4.png" alt="" class="mag-img">
+            <p class="mag-heading">Issue #4</p>
+            <div class="buy"><a href="#">BUY HERE</a></div>
+            <p class="stores">or in <a href="#">selected stores</a></p>
+            </div>
+        </div>
+        </section>
+
+    <div class="info">
+        <div class="logo">
+           <p>BACKSTAGE TALKS</p> 
+        </div>
+        <div class="details">
+            <p class="blurb">Backstage Talks is a magazine of casual, but in depth dialogues on design and business. Our decisions shape and influence this complex world—to have a chance to make the right ones, we need to talk.</p> 
+            <br/>
+            <p class="publish">© 2022 <a href="#">Published by studio Milk</a></p>
+            <div class="privacy"><a href="#">Privacy Policy</a></div>
+         </div>
+        <div class="contact">
+            <a href="#">info@backstagetalks.com</a>
+        </div>
+        <div class="issue">
+            <ul>
+                <li><a href="#6">Issue #6</a></li>
+                <li><a href="#5">Issue #5</a></li>
+                <li><a href="#4">Issue #4</a></li>
+                <li><a href="#3">Issue #3</a></li>
+                <li><a href="#2">Issue #2</a></li>
+                <li><a href="#1">Issue #1</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const [red, green, blue] = [69, 111, 225]
+        const body = document.querySelector('body')
+
+        window.addEventListener('scroll', () => {
+            let y = 1 + (window.scrollY || window.pageYOffset) / 150
+            y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
+            const [r, g, b] = [red/y, green/y, blue/y].map(Math.round)
+            body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+        })
+    </script>
     
 </body>
 </html>
