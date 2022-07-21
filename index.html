@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <div class="snap">
+    <div class="snap site-main" id="snap">
 
         <div class="magazine six" id="six">
         <img src="https://backstagetalks.com/img/backstagetalks_cover_issue_6.png" alt="" class="mag-img">
@@ -35,6 +35,27 @@
             <p class="stores">or in <a href="#">selected stores</a></p>
     </div>
 
+    <div class="magazine three" id="three">
+        <img src="https://backstagetalks.com/img/backstagetalks_cover_issue_3.png" alt="" class="mag-img">
+        <p class="mag-heading">Issue #3</p>
+        <div class="buy"><a href="#">BUY HERE</a></div>
+        <p class="stores">or in <a href="#">selected stores</a></p>
+    </div>
+
+    <div class="magazine two" id="two">
+        <img src="https://backstagetalks.com/img/backstagetalks_cover2017.png" alt="" class="mag-img">
+        <p class="mag-heading">Issue #2</p>
+        <div class="buy"><a href="#">BUY HERE</a></div>
+        <p class="stores">or in <a href="#">selected stores</a></p>
+    </div>
+
+    <div class="magazine one" id="one">
+        <img src="https://backstagetalks.com/img/backstagetalks_cover2016_n.png" alt="" class="mag-img">
+        <p class="mag-heading">Issue #1</p>
+        <div class="buy"><a href="#">BUY HERE</a></div>
+        <p class="stores">If you are lucky, you may get the last pieces in <a href="#">selected stores</a></p>
+    </div>
+
     </div>
 
     <div class="info">
@@ -43,7 +64,6 @@
         </div>
         <div class="details">
             <p class="blurb">Backstage Talks is a magazine of casual, but in depth dialogues on design and business. Our decisions shape and influence this complex world—to have a chance to make the right ones, we need to talk.</p> 
-            <br/>
             <p class="publish">© 2022 <a href="#">Published by studio Milk</a></p>
             <div class="privacy"><a href="#">Privacy Policy</a></div>
          </div>
@@ -63,15 +83,63 @@
     </div>
 
     <script>
-        const [red, green, blue] = [255, 255, 255]
-        const body = document.querySelector('body')
+        window.onscroll = function(){
+            fromTop_onscroll();
+            };
 
-        window.addEventListener('scroll', () => {
-            let y = 1 + (window.scrollY || window.pageYOffset) / 3000
-            y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
-            const [r, g, b] = [red/y, green/y, blue/y].map(Math.round)
-            body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
-        })
+            function fromTop_onscroll(){
+                var main = document.getElementById("snap");
+                var one = document.getElementById("five");
+                one_distance = one.getBoundingClientRect().top; // distance from top
+                var two = document.getElementById("four");
+                two_distance = two.getBoundingClientRect().top; // distance from top
+                var three = document.getElementById("three");
+                three_distance = three.getBoundingClientRect().top; // distance from top
+                var four = document.getElementById("two");
+                four_distance = four.getBoundingClientRect().top; // distance from top
+                var five = document.getElementById("one");
+                five_distance = five.getBoundingClientRect().top; // distance from top
+
+                if(one_distance < 150 && two_distance > 150){
+                    main.classList.add("bg-one");
+                    main.classList.remove("site-main");
+                    main.classList.remove("bg-two");
+                    main.classList.remove("bg-three");
+                    main.classList.remove("bg-four");
+                    main.classList.remove("bg-five");
+                } else if (two_distance < 150 && three_distance > 150) {
+                    main.classList.add("bg-two");
+                    main.classList.remove("bg-one");
+                    main.classList.remove("bg-three");
+                    main.classList.remove("bg-four");
+                    main.classList.remove("bg-five");
+                } else if (three_distance < 150 && four_distance > 150) {
+                    main.classList.add("bg-three");
+                    main.classList.remove("bg-one");
+                    main.classList.remove("bg-two");
+                    main.classList.remove("bg-four");
+                    main.classList.remove("bg-five");
+                } else if (four_distance < 150 && five_distance > 150) {
+                    main.classList.add("bg-four");
+                    main.classList.remove("bg-two");
+                    main.classList.remove("bg-one");
+                    main.classList.remove("bg-three");
+                    main.classList.remove("bg-five");
+                } else if (five_distance < 150 && four_distance < 0) {
+                    main.classList.add("bg-five");
+                    main.classList.remove("bg-one");
+                    main.classList.remove("bg-two");
+                    main.classList.remove("bg-three");
+                    main.classList.remove("bg-four");
+                } else if (one_distance > 150 && two_distance > 150){
+                    main.classList.add("site-main");
+                    main.classList.remove("bg-one");
+                    main.classList.remove("bg-two");
+                    main.classList.remove("bg-three");
+                    main.classList.remove("bg-four");
+                    main.classList.remove("bg-five");
+                }
+                }
     </script>
     
 </body>
