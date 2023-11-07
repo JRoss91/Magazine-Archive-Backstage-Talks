@@ -69,13 +69,12 @@ body a:hover {
 }
 
 .info {
-    
     padding: 6em 1.5em 2em 1.5em;
 }
 
 .magazine {
     font-weight: 700;
-    padding-top: 4em;
+    padding-top: 5vh;
 }
 
 .magazine a {
